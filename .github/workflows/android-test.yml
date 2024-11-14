@@ -43,8 +43,11 @@ jobs:
       - name: Check Gradle version
         run: ./gradlew --version
 
-      - name: Build the app
-        run: ./gradlew build
+      - name: Gradle Dependencies Check
+        run: ./gradlew dependencies
+
+      - name: Build the app (with debug info)
+        run: ./gradlew build --stacktrace --info
 
       - name: Run Instrumented Tests
         run: ./gradlew connectedAndroidTest
